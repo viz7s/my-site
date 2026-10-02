@@ -101,46 +101,36 @@
 
 
     <script>
-const form =
- document.getElementById("registrationForm");
-const phoneInput =
- document.getElementById("phone");
-const message =
- document.getElementById("message");
-const telegramButton =
- document.getElementById("telegramButton");
+    document.addEventListener("DOMContentLoaded", function () {
 
-form.addEventListener("submit", function(event) {
-    event.preventDefault();
+    const form = 
+    document.getElementById("registrationForm");
+    const phoneInput =
+     document.getElementById("phone");
+    const message =
+     document.getElementById("message");
 
-    const phone = phoneInput.value.trim();
+    form.addEventListener("submit", function (event) {
 
-    // Проверяем номер
-    if (phone.length < 5) {
-        message.textContent = "Введите корректный номер телефона.";
-        message.className = "error";
+        event.preventDefault();
 
-        // Telegram остаётся скрытым
-        telegramButton.style.display = "none";
+        const phone =
+     phoneInput.value.trim();
 
-        return;
-    }
+        // Проверяем, что номер введён
+        if (phone.length < 5) {
+            message.textContent = "Введите корректный номер телефона.";
+            message.className = "error";
+            return;
+        }
 
-    // Регистрация выполнена
-    message.textContent = "✅ Регистрация выполнена!";
-    message.className = "success";
+        // Показываем сообщение
+        message.textContent = "✅ Регистрация выполнена!";
+        message.className = "success";
 
-    // Показываем Telegram
-    telegramButton.style.display = "inline-block";
-});
+        // Переход в Telegram
+        window.location.href = "https://t.me/ТВОЙ_КАНАЛ";
+    });
 
-
-// Ограничение длины номера
-phoneInput.addEventListener("input", function() {
-    let value = phoneInput.value;
-
-    if (value.length > 20) {
-        phoneInput.value = value.substring(0, 20);
-    }
-});
-</script>
+    });
+    </script>
