@@ -1,6 +1,9 @@
-const form = document.getElementById("registrationForm");
-const phoneInput = document.getElementById("phone");
-const message = document.getElementById("message");
+const form =
+ document.getElementById("registrationForm");
+const phoneInput =
+ document.getElementById("phone");
+const message =
+ document.getElementById("message");
 
 form.addEventListener("submit", function(event) {
     event.preventDefault();

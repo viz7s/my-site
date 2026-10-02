@@ -1,94 +1,141 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
+
 body {
-    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(circle at top left, #8b5cf6, transparent 40%),
+        radial-gradient(circle at bottom right, #2563eb, transparent 40%),
+        linear-gradient(135deg, #4f46e5, #7c3aed);
+
+    color: #222;
+}
+
+
+.page {
     min-height: 100vh;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    font-family: Arial, sans-serif;
-
-    background:
-        linear-gradient(135deg, #0088cc, #6c5ce7);
-
-    padding: 20px;
+    padding: 25px;
 }
+
 
 .card {
     width: 100%;
-    max-width: 400px;
+    max-width: 430px;
 
-    background: white;
-
-    padding: 40px 30px;
+    background: rgba(255, 255, 255, 0.97);
 
     border-radius: 24px;
+
+    padding: 35px 30px;
 
     text-align: center;
 
     box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.2);
+        0 25px 60px rgba(0, 0, 0, 0.25);
+
+    animation: appear 0.5s ease;
 }
 
-.logo {
-    width: 70px;
-    height: 70px;
 
-    margin: 0 auto 20px;
+@keyframes appear {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+.logo {
+    width: 65px;
+    height: 65px;
+
+    margin: 0 auto 15px;
 
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 
-    background: #0088cc;
+    background: #eef2ff;
 
     border-radius: 50%;
 
-    font-size: 35px;
+    font-size: 30px;
 }
+
 
 h1 {
-    margin: 0 0 12px;
+    font-size: 30px;
 
-    color: #222;
+    margin-bottom: 10px;
 
-    font-size: 28px;
+    color: #111827;
 }
+
 
 .subtitle {
-    color: #777;
+    color: #6b7280;
+
+    font-size: 15px;
+
+    margin-bottom: 28px;
 
     line-height: 1.5;
-
-    margin-bottom: 30px;
 }
+
+
+/* Поле телефона */
 
 form {
     text-align: left;
 }
+
 
 label {
     display: block;
 
     margin-bottom: 8px;
 
-    color: #333;
+    font-size: 14px;
 
     font-weight: bold;
+
+    color: #374151;
 }
+
 
 input {
     width: 100%;
 
-    padding: 15px;
+    height: 52px;
 
-    border: 2px solid #e5e5e5;
+    padding: 0 16px;
+
+    border: 2px solid #e5e7eb;
 
     border-radius: 12px;
+
+    background: #fff;
+
+    color: #111827;
 
     font-size: 16px;
 
@@ -97,22 +144,38 @@ input {
     transition: 0.2s;
 }
 
-input:focus {
-    border-color: #0088cc;
+
+input::placeholder {
+    color: #9ca3af;
 }
 
-button {
+
+input:focus {
+    border-color: #6366f1;
+
+    box-shadow:
+        0 0 0 4px rgba(99, 102, 241, 0.12);
+}
+
+
+    /* Кнопка регистрации */
+
+.register-button {
     width: 100%;
 
-    margin-top: 18px;
+    height: 52px;
 
-    padding: 15px;
+    margin-top: 15px;
 
     border: none;
 
     border-radius: 12px;
 
-    background: #0088cc;
+    background: linear-gradient(
+        135deg,
+        #6366f1,
+        #7c3aed
+    );
 
     color: white;
 
@@ -125,30 +188,295 @@ button {
     transition: 0.2s;
 }
 
-button:hover {
-    background: #0077b5;
 
-    transform: translateY(-1px);
+.register-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(99, 102, 241, 0.3);
 }
 
-button:active {
+
+.register-button:active {
     transform: translateY(0);
 }
 
+
+/* Сообщения */
+
 #message {
-    min-height: 20px;
+    min-height: 24px;
 
     margin-top: 15px;
 
     font-size: 14px;
+
+    font-weight: bold;
 }
 
-.privacy {
+
+.success {
+    color: #16a34a;
+}
+
+
+.error {
+    color: #dc2626;
+}
+
+
+/* Telegram */
+
+.telegram-section {
     margin-top: 25px;
 
-    color: #999;
+    padding-top: 25px;
 
-    font-size: 12px;
+    border-top: 1px solid #e5e7eb;
+}
+
+
+.telegram-section p {
+    color: #6b7280;
+
+    font-size: 14px;
+
+    margin-bottom: 15px;
+}
+
+
+.telegram-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 190px;
+
+    height: 48px;
+
+    padding: 0 22px;
+
+    border-radius: 12px;
+
+    background: #229ed9;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+
+.telegram-button:hover {
+    background: #168dcc;
+
+    transform: translateY(-2px);
+}
+
+
+/* QR-код */
+
+.qr-section {
+    margin-top: 28px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #e5e7eb;
+}
+
+
+.qr-section h2 {
+    font-size: 20px;
+
+    color: #111827;
+
+    margin-bottom: 8px;
+}
+
+
+.qr-section > p {
+    color: #6b7280;
+
+    
+    font-size: 14px;
+
+    font-weight: bold;
+}
+
+
+.success {
+    color: #16a34a;
+}
+
+
+.error {
+    color: #dc2626;
+}
+
+
+/* Telegram */
+
+.telegram-section {
+    margin-top: 25px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #e5e7eb;
+}
+
+
+.telegram-section p {
+    color: #6b7280;
+
+    font-size: 14px;
+
+    margin-bottom: 15px;
+}
+
+
+.telegram-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 190px;
+
+    height: 48px;
+
+    padding: 0 22px;
+
+    border-radius: 12px;
+
+    background: #229ed9;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+
+.telegram-button:hover {
+    background: #168dcc;
+
+    transform: translateY(-2px);
+}
+
+
+/* QR-код */
+
+.qr-section {
+    margin-top: 28px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #e5e7eb;
+}
+
+
+.qr-section h2 {
+    font-size: 20px;
+
+    color: #111827;
+
+    margin-bottom: 8px;
+}
+
+
+.qr-section > p {
+    color: #6b7280;
+
+    font-size: 14px;
 
     line-height: 1.5;
+}
+
+
+.qr-wrapper {
+    width: 270px;
+    height: 270px;
+
+    margin: 20px auto;
+
+    padding: 10px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+
+.qr-code {
+    width: 250px;
+    height: 250px;
+
+    display: block;
+}
+
+
+.qr-link {
+    font-size: 12px !important;
+
+    color: #9ca3af !important;
+
+    word-break: break-all;
+
+    margin-top: 5px;
+}
+
+
+/* Мобильная версия */
+
+@media (max-width: 480px) {
+
+    .page {
+        padding: 15px;
+    }
+
+
+    .card {
+        padding: 28px 20px;
+
+        border-radius: 20px;
+    }
+
+
+    h1 {
+        font-size: 26px;
+    }
+
+
+    .qr-wrapper {
+        width: 230px;
+        height: 230px;
+    }
+
+
+    .qr-code {
+        width: 210px;
+        height: 210px;
+    }
+
 }
