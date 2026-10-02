@@ -11,9 +11,11 @@
 
 <body>
 
-    <main class="container">
+    <div class="page">
 
         <div class="card">
+
+            <div class="logo">🌐</div>
 
             <h1>Добро пожаловать!</h1>
 
@@ -21,87 +23,118 @@
                 Введите номер телефона для регистрации
             </p>
 
+
+            <!-- Форма регистрации -->
             <form id="registrationForm">
+
+                <label for="phone">Номер телефона</label>
 
                 <input
                     type="tel"
                     id="phone"
+                    name="phone"
                     placeholder="+7 (999) 123-45-67"
+                    autocomplete="tel"
                     required
                 >
 
-                <button type="submit">
+                <button type="submit" class="register-button">
                     Зарегистрироваться
                 </button>
 
             </form>
 
+
+            <!-- Сообщение после регистрации -->
             <div id="message"></div>
 
-            <div class="telegram">
-                <p>После регистрации перейдите в наш Telegram-канал</p>
 
+            <!-- Telegram -->
+            <div class="telegram-section">
+
+                <p>
+                    После регистрации перейдите в наш Telegram-канал
+                </p>
+
+                <!-- ЗАМЕНИ ССЫЛКУ НИЖЕ НА СВОЙ TELEGRAM-КАНАЛ -->
                 <a
-                    href="https://t.me/+usf3cfHXiYc1YzJi"
+                    href="https://t.me/ССЫЛКА_НА_ТВОЙ_КАНАЛ"
                     target="_blank"
+                    rel="noopener noreferrer"
                     class="telegram-button"
                 >
-                    Открыть Telegram
+                    ✈️ Открыть Telegram
                 </a>
+
             </div>
 
+
+            <!-- QR-код -->
             <div class="qr-section">
 
                 <h2>Открыть сайт с телефона</h2>
 
                 <p>
-                    Наведи камеру телефона на QR-код
-                </p>
+                    Наведите камеру телефона на QR-код
+                    </p>
 
-                <div id="qrcode"></div>
+                <div class="qr-wrapper">
+
+                    <img
+                        src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https%3A%2F%2Fvlz7s.github.io%2Fmy-site%2F"
+                        alt="QR-код сайта"
+                        class="qr-code"
+                    >
+
+                </div>
+
+                <p class="qr-link">
+                    vlz7s.github.io/my-site
+                </p>
 
             </div>
 
         </div>
 
-    </main>
-
-
-    <!-- Библиотека для создания QR-кода -->
-    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    </div>
 
 
     <script>
 
-        // QR-код твоего сайта
-        new QRCode(document.getElementById("qrcode"), {
-            text: "https://vlz7s.github.io/my-site/",
-            width: 200,
-            height: 200
+        const form = document.getElementById("registrationForm");
+        const phoneInput = document.getElementById("phone");
+        const message = document.getElementById("message");
+
+        form.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const phone = phoneInput.value.trim();
+
+            if (phone.length < 5) {
+
+                message.textContent = "Введите корректный номер телефона.";
+                message.className = "error";
+
+                return;
+            }
+
+            message.textContent = "✓ Регистрация выполнена!";
+            message.className = "success";
+
         });
 
 
-        // Обработка регистрации
-        document
-            .getElementById("registrationForm")
-            .addEventListener("submit", function(event)
-      
+        // Небольшое форматирование номера телефона
+        phoneInput.addEventListener("input", function() {
 
-                event.preventDefault();
+            let value = phoneInput.value;
 
-                const phone = document.getElementById("phone").value;
-                const message = document.getElementById("message");
+            if (value.length > 20) {
+                phoneInput.value = value.substring(0, 20);
+            }
 
-                if (phone.trim() === "") {
-                    message.textContent = "Введите номер телефона";
-                    message.className = "error";
-                    return;
-                }
-
-                message.textContent = "Регистрация выполнена!";
-                message.className = "success";
-
-            });
+        });
 
     </script>
 
