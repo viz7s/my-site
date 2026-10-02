@@ -1,7 +1,11 @@
-const form = document.getElementById("registrationForm");
-const phoneInput = document.getElementById("phone");
-const message = document.getElementById("message");
-const telegramSection = document.getElementById("telegramSection");
+const form =
+ document.getElementById("registrationForm");
+const phoneInput =
+ document.getElementById("phone");
+const message =
+ document.getElementById("message");
+const telegramSection =
+ document.getElementById("telegramSection");
 
 form.addEventListener("submit", function(event) {
 
