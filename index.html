@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Регистрация</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="card">
+
+        <div class="logo">✈️</div>
+
+        <h1>Добро пожаловать!</h1>
+
+        <p class="subtitle">
+            Зарегистрируйтесь, чтобы получить доступ к нашему Telegram-каналу.
+        </p>
+
+        <form id="registerForm">
+
+            <label for="phone">Номер телефона</label>
+
+            <input
+                id="phone"
+                type="tel"
+                placeholder="+7 999 123-45-67"
+                autocomplete="tel"
+                required
+            >
+
+            <button type="submit">
+                Зарегистрироваться
+            </button>
+
+        </form>
+
+        <p id="message"></p>
+
+        <div class="privacy">
+            Нажимая кнопку, вы соглашаетесь на обработку
+            введённых данных.
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
