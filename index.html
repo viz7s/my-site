@@ -11,44 +11,99 @@
 
 <body>
 
-    <main class="card">
+    <main class="container">
 
-        <div class="logo">✈️</div>
+        <div class="card">
 
-        <h1>Добро пожаловать!</h1>
+            <h1>Добро пожаловать!</h1>
 
-        <p class="subtitle">
-            Зарегистрируйтесь, чтобы получить доступ к нашему Telegram-каналу.
-        </p>
+            <p class="subtitle">
+                Введите номер телефона для регистрации
+            </p>
 
-        <form id="registerForm">
+            <form id="registrationForm">
 
-            <label for="phone">Номер телефона</label>
+                <input
+                    type="tel"
+                    id="phone"
+                    placeholder="+7 (999) 123-45-67"
+                    required
+                >
 
-            <input
-                id="phone"
-                type="tel"
-                placeholder="+7 999 123-45-67"
-                autocomplete="tel"
-                required
-            >
+                <button type="submit">
+                    Зарегистрироваться
+                </button>
 
-            <button type="submit">
-                Зарегистрироваться
-            </button>
+            </form>
 
-        </form>
+            <div id="message"></div>
 
-        <p id="message"></p>
+            <div class="telegram">
+                <p>После регистрации перейдите в наш Telegram-канал</p>
 
-        <div class="privacy">
-            Нажимая кнопку, вы соглашаетесь на обработку
-            введённых данных.
+                <a
+                    href="https://t.me/+usf3cfHXiYc1YzJi"
+                    target="_blank"
+                    class="telegram-button"
+                >
+                    Открыть Telegram
+                </a>
+            </div>
+
+            <div class="qr-section">
+
+                <h2>Открыть сайт с телефона</h2>
+
+                <p>
+                    Наведи камеру телефона на QR-код
+                </p>
+
+                <div id="qrcode"></div>
+
+            </div>
+
         </div>
 
     </main>
 
-    <script src="script.js"></script>
+
+    <!-- Библиотека для создания QR-кода -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+
+
+    <script>
+
+        // QR-код твоего сайта
+        new QRCode(document.getElementById("qrcode"), {
+            text: "https://vlz7s.github.io/my-site/",
+            width: 200,
+            height: 200
+        });
+
+
+        // Обработка регистрации
+        document
+            .getElementById("registrationForm")
+            .addEventListener("submit", function(event)
+      
+
+                event.preventDefault();
+
+                const phone = document.getElementById("phone").value;
+                const message = document.getElementById("message");
+
+                if (phone.trim() === "") {
+                    message.textContent = "Введите номер телефона";
+                    message.className = "error";
+                    return;
+                }
+
+                message.textContent = "Регистрация выполнена!";
+                message.className = "success";
+
+            });
+
+    </script>
 
 </body>
 </html>
