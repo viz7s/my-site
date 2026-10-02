@@ -101,36 +101,44 @@
 
 
     <script>
-    document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
 
-    const form = 
+    const form =
     document.getElementById("registrationForm");
     const phoneInput =
-     document.getElementById("phone");
+    document.getElementById("phone");
     const message =
-     document.getElementById("message");
+    document.getElementById("message");
 
     form.addEventListener("submit", function (event) {
-
         event.preventDefault();
 
-        const phone =
-     phoneInput.value.trim();
+        const phone = 
+    phoneInput.value.trim();
 
-        // Проверяем, что номер введён
+        // Проверяем номер
         if (phone.length < 5) {
             message.textContent = "Введите корректный номер телефона.";
             message.className = "error";
             return;
         }
 
-        // Показываем сообщение
+        // Регистрация выполнена
         message.textContent = "✅ Регистрация выполнена!";
         message.className = "success";
 
         // Переход в Telegram
-        window.location.href = "https://t.me/+usf3cfHXiYc1YzJi";
+        setTimeout(function () {
+            window.location.href = "https://t.me/+usf3cfHXiYc1YzJi";
+        }, 300);
     });
 
+    // Ограничение длины номера
+    phoneInput.addEventListener("input", function () {
+        if (phoneInput.value.length > 20) {
+            phoneInput.value = phoneInput.value.substring(0, 20);
+        }
     });
-    </script>
+
+        });
+        </script>
